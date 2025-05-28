@@ -14,7 +14,7 @@
 
   <script>
     // Call the function with two separate numbers
-    addNumbers(5, 7);
+    document.getElementById("addition").innerHTML=addNumbers(10, 20);
 
     // Change heading text when clicked
     function changeText() {
@@ -28,7 +28,7 @@
 
     // Function that adds numbers and displays them
     function addNumbers(num1, num2) {
-      document.getElementById("addition").innerHTML = num1 + num2;
+      return num1 + num2;
     }
   </script>
 
