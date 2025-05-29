@@ -1,27 +1,44 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Page</title>
 </head>
 <body>
-    <p>Welcome.Please log in</p>
-  <form>
-    <label for="usernameInput">Username:</label><input type="text" id="usernameInput"/><br/>
-    <label for="passwordInput">Password:</label><input type="password" id="passwordInput"/><br/>
-    <br/><br/?>
-    <a href="a">Log in</a>
+  <p>Welcome. Please log in.</p>
+
+  <form onsubmit="verifyUser(); return false;">
+    <label for="usernameInput">Username:</label>
+    <input type="text" id="usernameInput" /><br />
+
+    <label for="passwordInput">Password:</label>
+    <input type="password" id="passwordInput" /><br /><br />
+
+    <input type="submit" value="Log in" />
   </form>
 
-    <script>
-        function verifyUser(){
-            var Username = document.getElementById("usernameInput").value;
-            var Password = document.getElementById("passwordInput").value;
-        }
+  <p id="message"></p>
 
+  <script>
+    function verifyUser() {
+      const username = document.getElementById("usernameInput").value;
+      const password = document.getElementById("passwordInput").value;
 
-    </script>
+      checkUserCreds(username, password);
+    }
+
+    function checkUserCreds(username, password) {
+      const systemUsername = "Bond";
+      const systemPassword = "007";
+
+      if (username === systemUsername && password === systemPassword) {
+        document.getElementById("message").innerHTML = "✅ Correct. Logging you in...";
+      } else {
+        document.getElementById("message").innerHTML = "❌ Incorrect username or password.";
+      }
+    }
+  </script>
 </body>
 </html>
